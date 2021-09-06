@@ -1,20 +1,116 @@
+### We waste no time
+snippet program "Program thru-exp"
+PROGRAM $1
+    IMPLICIT NONE
+    $0
+END PROGRAM $1
+endsnippet
+
+snippet "program (.+)" "PROGRAM pre-exp" r
+PROGRAM `!p snip.rv = match.group(1)`
+    IMPLICIT NONE
+    $0
+END PROGRAM `!p snip.rv = match.group(1)`
+endsnippet
+
+
+
+
+### DO-snippets
+priority 10
+snippet "do (.+)" "Expand do" "snip.column == len(snip.buffer[snip.line]) - 1" er
+DO `!p snip.rv = match.group(1)`
+    $1
+END DO$0
+endsnippet
+
+snippet do "pre-DO"
+DO $1
+    $2
+END DO$0
+endsnippet
+
+### LOGICAL OPERATORS THAT ARE ANNOYING
+# priority 20 for type "word &&"
+# priotiry 10 for type "word&&"
+priority 20
+snippet && "Fortran .and." wA
+.AND. $0
+endsnippet
+
+snippet || "Fortran .or." wA
+.OR. $0
+endsnippet
+
+snippet != "Fortran neq" wA
+/= $0
+endsnippet
+
+priority 10
 snippet && "Fortran .and." iA
-.AND.
+ .AND. $0
 endsnippet
 
 snippet || "Fortran .or." iA
-.OR.
+ .OR. $0
 endsnippet
 
 snippet != "Fortran neq" iA
-/=
+ /= $0
 endsnippet
 
-snippet "true" "Fortran true" iAr
+
+
+### Typing .TRUE. and .FALSE. is boring
+priority 20
+snippet "true" "Fortran true" iA
 .TRUE.
 endsnippet
 
-snippet "false" "Fortran false" iAr
+snippet "false" "Fortran false" iA
 .FALSE.
 endsnippet
+
+### IF-expansions
+priority 30
+snippet if "IF expansion"
+IF ($1) THEN
+	$2
+END IF$0
+endsnippet
+
+snippet "if (.+)" "IF pre-exp" r
+IF (`!p snip.rv = match.group(1)`) THEN
+	$1
+END IF$0
+endsnippet
+
+
+### WHILE-expansions
+priority 30
+snippet while "WHILE thru-exp"
+WHILE ($1)$0
+endsnippet
+
+snippet "while (.+)" "WHILE pre-exp" r
+WHILE (`!p snip.rv = match.group(1)`)$0
+endsnippet
+
+
+### "write variable" instead of "WRITE(*,*) variable"
+priority 30
+snippet write "Standard write thru-exp"
+WRITE(*,*) $0
+endsnippet
+
+snippet "write (.+)" "WRITE pre-exp" r
+WRITE(*,*) `!p snip.rv = match.group(1)`$0
+endsnippet
+
+### Type expansions
+snippet int "INTEGER expansion" wA
+INTEGER
+endsnippet
+
+
 

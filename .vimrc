@@ -8,6 +8,9 @@ let g:airline_powerline_fonts = 1
 Plug 'ycm-core/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_path_to_python_interpreter='/usr/bin/python'
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 Plug 'tpope/vim-sensible'
 
