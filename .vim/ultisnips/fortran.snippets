@@ -38,9 +38,18 @@ snippet && "Fortran .and." wA
 .AND. $0
 endsnippet
 
+snippet and "Fortran .and." wA
+.AND. $0
+endsnippet
+
 snippet || "Fortran .or." wA
 .OR. $0
 endsnippet
+
+snippet or "Fortran .or." wA
+.OR. $0
+endsnippet
+
 
 snippet != "Fortran neq" wA
 /= $0
@@ -108,9 +117,20 @@ WRITE(*,*) `!p snip.rv = match.group(1)`$0
 endsnippet
 
 ### Type expansions
-snippet int "INTEGER expansion" wA
-INTEGER
+snippet "int " "INTEGER expansion" wAr
+INTEGER $0
 endsnippet
 
+snippet int "int expand 2" w
+INTEGER$0
+endsnippet
+
+snippet int, "int, expand" wA
+INTEGER,$0
+endsnippet
+
+snippet "INTEGER(\s+)" "skip ::" r
+INTEGER`!p snip.rv = match.group(1)`::`!p snip.rv = match.group(1)`$0
+endsnippet
 
 
