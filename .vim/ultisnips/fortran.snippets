@@ -89,7 +89,7 @@ END IF$0
 endsnippet
 
 snippet "if (.+)" "IF pre-exp" r
-IF (`!p snip.rv = match.group(1)`) THEN
+IF (`!p snip.rv = match.group(1).strip()`) THEN
 	$1
 END IF$0
 endsnippet
