@@ -1,4 +1,6 @@
-### We waste no time
+### Program / module {{{
+priority 1
+
 snippet program "Program thru-exp"
 PROGRAM $1
     IMPLICIT NONE
@@ -13,6 +15,97 @@ PROGRAM `!p snip.rv = match.group(1)`
 END PROGRAM `!p snip.rv = match.group(1)`
 endsnippet
 
+
+# MODULE
+snippet module "Module thru-exp"
+MODULE $1
+    IMPLICIT NONE
+    $0
+END MODULE $1
+endsnippet
+
+snippet "module (.+)" "MODULE pre-exp" r
+MODULE `!p snip.rv = match.group(1)`
+    IMPLICIT NONE
+    $0
+END MODULE `!p snip.rv = match.group(1)`
+endsnippet
+# }}}
+
+
+# SUBROUTINES {{{
+priority 1
+
+snippet sub "SUBROUTINE thru-exp"
+SUBROUTINE $1
+    $0
+END SUBROUTINE $1
+endsnippet
+
+snippet "sub (.+)" "SUBROUTINE pre-exp" r
+SUBROUTINE `!p snip.rv = match.group(1)`
+    $0
+END SUBROUTINE `!p snip.rv = match.group(1).split('(')[0]`
+endsnippet
+# }}}
+
+
+# FUNCTIONS {{{
+priority 1
+snippet func "FUNCTION thru-exp"
+FUNCTION $1
+    $0
+END FUNCTION `!p snip.rv = t[1].split('(')[0]`
+endsnippet
+
+snippet "func (.+)" "FUNCTION pre-exp" r
+FUNCTION `!p snip.rv = match.group(1)`
+    $0
+END FUNCTION `!p snip.rv = match.group(1).split('(')[0]`
+endsnippet
+
+## TYPE functions! {{{
+priority 10
+
+snippet intfunc "INTEGER FUNCTION thru-exp"
+INTEGER FUNCTION $1
+    $0
+END FUNCTION $1
+endsnippet
+
+snippet "intfunc (.+)" "INTEGER FUNCTION pre-exp" r
+INTEGER FUNCTION `!p snip.rv = match.group(1)`
+    $0
+END FUNCTION `!p snip.rv = match.group(1).split('(')[0]`
+endsnippet
+
+snippet realfunc "REAL FUNCTION thru-exp"
+REAL FUNCTION $1
+    $0
+END FUNCTION $1
+endsnippet
+
+snippet "realfunc (.+)" "REAL FUNCTION pre-exp" r
+REAL FUNCTION `!p snip.rv = match.group(1)`
+    $0
+END FUNCTION `!p snip.rv = match.group(1).split('(')[0]`
+endsnippet
+# }}}
+
+# INTENTS
+snippet in "INTENT(in)"
+INTENT(in)$0
+endsnippet
+
+snippet out "INTENT(out)"
+INTENT(out)$0
+endsnippet
+
+snippet inout "INTENT(inout)"
+INTENT(inout)$0
+endsnippet
+
+# }}}
 
 
 
@@ -30,29 +123,29 @@ DO $1
 END DO$0
 endsnippet
 
-### LOGICAL OPERATORS THAT ARE ANNOYING
+### LOGICAL OPERATORS THAT ARE ANNOYING {{{
 # priority 20 for type "word &&"
 # priotiry 10 for type "word&&"
 priority 20
 snippet && "Fortran .and." wA
-.AND. $0
+.AND.$0
 endsnippet
 
 snippet and "Fortran .and." wA
-.AND. $0
+.AND.$0
 endsnippet
 
 snippet || "Fortran .or." wA
-.OR. $0
+.OR.$0
 endsnippet
 
 snippet or "Fortran .or." wA
-.OR. $0
+.OR.$0
 endsnippet
 
 
 snippet != "Fortran neq" wA
-/= $0
+/=$0
 endsnippet
 
 priority 10
@@ -67,16 +160,16 @@ endsnippet
 snippet != "Fortran neq" iA
  /= $0
 endsnippet
-
+# }}}
 
 
 ### Typing .TRUE. and .FALSE. is boring
 priority 20
-snippet "true" "Fortran true" iA
+snippet true "Fortran true" iA
 .TRUE.
 endsnippet
 
-snippet "false" "Fortran false" iA
+snippet false "Fortran false" iA
 .FALSE.
 endsnippet
 
@@ -116,7 +209,17 @@ snippet "write (.+)" "WRITE pre-exp" r
 WRITE(*,*) `!p snip.rv = match.group(1)`$0
 endsnippet
 
-### Type expansions
+snippet read "Standard read thru-exp"
+READ(*,*) $0
+endsnippet
+
+snippet "read (.+)" "READ pre-exp" r
+READ(*,*) `!p snip.rv = match.group(1)`$0
+endsnippet
+
+
+### Type expansions {{{
+# INTEGER
 snippet "int " "INTEGER expansion" wAr
 INTEGER $0
 endsnippet
@@ -126,11 +229,29 @@ INTEGER$0
 endsnippet
 
 snippet int, "int, expand" wA
-INTEGER,$0
+INTEGER, $0
 endsnippet
 
 snippet "INTEGER(\s+)" "skip ::" r
-INTEGER`!p snip.rv = match.group(1)`::`!p snip.rv = match.group(1)`$0
+INTEGER`!p snip.rv = match.group(1)`:: $0
+endsnippet
+
+# REAL
+snippet "real " "REAL expansion" wAr
+REAL $0
+endsnippet
+
+snippet real "real expand 2" w
+REAL$0
+endsnippet
+
+snippet real, "real, expand" wA
+REAL, $0
+endsnippet
+
+snippet "REAL(\s+)" "skip ::" r
+REAL`!p snip.rv = match.group(1)`:: $0
 endsnippet
 
 
+### }}}
