@@ -51,6 +51,8 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
+set foldmethod=marker
+
 set undolevels=1000
 
 " Remaps
@@ -62,3 +64,5 @@ command Wq wq
 command WQ wq
 command Spongebob au InsertCharPre * if rand()%2 | let v:char = toupper(v:char) | endif
 command QQ q!
+
+hi MatchParen ctermfg=208 ctermbg=bg
