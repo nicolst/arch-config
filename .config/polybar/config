@@ -56,10 +56,11 @@ module-margin-right = 2
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
+font-3 = "Weather Icons:style=Regular:size=12;1"
 
 modules-left = bspwm i3
 modules-center = spotify
-modules-right = filesystem xbacklight pulseaudio memory cpu eth temperature date powermenu
+modules-right = filesystem backlight-acpi pulseaudio memory cpu eth temperature battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -108,6 +109,31 @@ mount-0 = /
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = ADP1
+
+format-underline = #EEEE00
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+
 
 [module/bspwm]
 type = internal/bspwm
@@ -387,8 +413,11 @@ format-padding = 4
 format-underline = #1db954
 line-size = 1
 
-
-
+[module/weather]
+type = custom/script
+exec = clweather -p d256f77e29eae6af62dc8a41408786ee
+execi-if = ping 1.1.1.1
+interval = 600
 
 [settings]
 screenchange-reload = true

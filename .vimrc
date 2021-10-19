@@ -36,6 +36,7 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnips']
 
 Plug 'tpope/vim-commentary'
 
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " Other settings
