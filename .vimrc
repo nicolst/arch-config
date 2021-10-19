@@ -37,6 +37,9 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnips']
 Plug 'tpope/vim-commentary'
 
 Plug 'tpope/vim-surround'
+
+Plug 'ledger/vim-ledger'
+
 call plug#end()
 
 " Other settings
@@ -56,6 +59,8 @@ set foldmethod=marker
 
 set undolevels=1000
 
+set clipboard=unnamed
+
 " Remaps
 inoremap jk <Esc>
 command NT NERDTree
@@ -65,5 +70,7 @@ command Wq wq
 command WQ wq
 command Spongebob au InsertCharPre * if rand()%2 | let v:char = toupper(v:char) | endif
 command QQ q!
+
+nnoremap <C-N> :NERDTreeToggle<CR>
 
 hi MatchParen ctermfg=208 ctermbg=bg

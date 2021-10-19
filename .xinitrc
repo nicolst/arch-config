@@ -19,6 +19,9 @@ if [ -f $sysresources ]; then
 
 fi
 
+
+setxkbmap no -variant nodeadkeys
+
 if [ -f $sysmodmap ]; then
     xmodmap $sysmodmap
 fi

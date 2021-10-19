@@ -7,4 +7,7 @@
 alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias replay='obs --startreplaybuffer --minimize-to-tray'
+
+export EDITOR=vim
+
 PS1='[\u@\h \W]\$ '
