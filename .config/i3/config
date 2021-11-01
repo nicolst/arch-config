@@ -71,10 +71,10 @@ bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drun#ssh -theme nord
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+oslash focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -83,10 +83,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+oslash move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -95,7 +95,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -208,7 +208,7 @@ bindsym $mod+r mode "resize"
 #bar {
 #        status_command i3status
 #}
-exec "setxkbmap -layout no"
+#exec "setxkbmap -layout no"
 exec_always --no-startup-id ~/.config/i3/polybar.sh
 exec_always --no-startup-id ~/.scripts/spotify/launchlistener.sh
 exec_always --no-startup-id picom
@@ -218,6 +218,8 @@ exec_always --no-startup-id numlockx on
 exec_always --no-startup-id shutter --min_at_startup
 exec_always --no-startup-id easyeffects --gapplication-service
 exec_always --no-startup-id dunst
+#exec_always --no-startup-id setxkbmap no -variant nodeadkeys
+#exem_always --no-startup-id xmodmap -e "keycode 135 = Super_R"
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume "@DEFAULT_SINK@" +5% #increase sound volume
