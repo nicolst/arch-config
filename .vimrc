@@ -40,6 +40,8 @@ Plug 'tpope/vim-surround'
 
 Plug 'ledger/vim-ledger'
 
+Plug 'preservim/tagbar'
+
 call plug#end()
 
 " Other settings
@@ -62,6 +64,11 @@ set undolevels=1000
 set clipboard=unnamed
 
 " Remaps
+let mapleader=","
+nnoremap <Leader>tv :vert term<CR>
+nnoremap <Leader>th :term<CR>
+noremap <Leader>' :Commentary<CR>
+
 inoremap jk <Esc>
 command NT NERDTree
 command W w
@@ -72,5 +79,7 @@ command Spongebob au InsertCharPre * if rand()%2 | let v:char = toupper(v:char) 
 command QQ q!
 
 nnoremap <C-N> :NERDTreeToggle<CR>
+nnoremap <C-M> :TagbarToggle<CR>
+nnoremap <C-,> :vert term<CR>
 
 hi MatchParen ctermfg=208 ctermbg=bg
