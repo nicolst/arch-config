@@ -68,8 +68,19 @@ set clipboard=unnamed
 
 " Remaps
 let mapleader=","
-nnoremap <Leader>tv :vert term<CR>
-nnoremap <Leader>th :term<CR>
+
+" Run Python files
+au FileType python nnoremap <silent> <buffer> <leader>rr :w<CR>:!clear;python %<CR>
+au FileType python nnoremap <silent> <buffer> <leader>rt :w<CR>:ter python "%"<CR>
+au FileType python nnoremap <silent> <buffer> <leader>rv :w<CR>:vert ter python "%"<CR>
+
+" LaTeX settings
+au FileType tex setlocal textwidth=80
+
+
+" Easier terminal access
+nnoremap <silent> <buffer> <leader>tt :term<CR>
+nnoremap <silent> <buffer> <leader>tv :vert term<CR>
 noremap <Leader>' :Commentary<CR>
 
 inoremap jk <Esc>
@@ -82,7 +93,6 @@ command Spongebob au InsertCharPre * if rand()%2 | let v:char = toupper(v:char) 
 command QQ q!
 
 nnoremap <C-N> :NERDTreeToggle<CR>
-nnoremap <C-M> :TagbarToggle<CR>
-nnoremap <C-,> :vert term<CR>
+nnoremap <C-Q> :TagbarToggle<CR>
 
 hi MatchParen ctermfg=208 ctermbg=bg
