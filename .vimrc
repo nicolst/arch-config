@@ -50,6 +50,9 @@ colo molokai
 filetype plugin indent on
 syntax enable
 
+" Fixes background issue
+let &t_ut=''
+
 set number
 set encoding=utf8
 
