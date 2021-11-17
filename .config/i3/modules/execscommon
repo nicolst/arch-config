@@ -1,0 +1,12 @@
+##### Common executes
+
+exec_always --no-startup-id ~/.config/i3/polybar.sh
+exec_always --no-startup-id ~/.scripts/spotify/launchlistener.sh
+exec_always --no-startup-id picom
+exec_always --no-startup-id numlockx on
+exec_always --no-startup-id shutter --min_at_startup
+exec_always --no-startup-id easyeffects --gapplication-service
+exec_always --no-startup-id dunst
+
+
+

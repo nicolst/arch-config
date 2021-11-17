@@ -74,8 +74,8 @@ au FileType python nnoremap <silent> <buffer> <leader>rr :w<CR>:!clear;python %<
 au FileType python nnoremap <silent> <buffer> <leader>rt :w<CR>:ter python "%"<CR>
 au FileType python nnoremap <silent> <buffer> <leader>rv :w<CR>:vert ter python "%"<CR>
 
-" LaTeX settings
-au FileType tex setlocal textwidth=80
+" Line wrapping
+au FileType tex,text setlocal textwidth=80
 
 
 " Easier terminal access
