@@ -11,7 +11,7 @@ cd "$HOME/.config/i3/"
 
 files=""
 
-parts=( "style" "keybinds" "execs" )
+parts=( "style" "windows" "keybinds" "execs" )
 variants=( "common" "desktop" "laptop" )
 
 for part in ${parts[@]}; do

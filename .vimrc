@@ -79,8 +79,8 @@ au FileType tex,text setlocal textwidth=80
 
 
 " Easier terminal access
-nnoremap <silent> <buffer> <leader>tt :term<CR>
-nnoremap <silent> <buffer> <leader>tv :vert term<CR>
+nnoremap <silent> <leader>tt :term<CR>
+nnoremap <silent> <leader>tv :vert term<CR>
 noremap <Leader>' :Commentary<CR>
 
 inoremap jk <Esc>

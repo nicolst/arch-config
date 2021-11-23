@@ -1,0 +1,3 @@
+for_window [title="^Figure \d+"] floating enable
+
+
