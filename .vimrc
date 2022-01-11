@@ -7,9 +7,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
 
-" Plug 'ycm-core/YouCompleteMe'
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_path_to_python_interpreter='/usr/bin/python'
+Plug 'ycm-core/YouCompleteMe'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_path_to_python_interpreter='/usr/bin/python'
 " let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 " let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 " let g:SuperTabDefaultCompletionType = '<C-n>'
@@ -29,9 +29,9 @@ set conceallevel=1
 let g:tex_conceal='abdmg'
 
 Plug 'sirver/ultisnips'
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsExpandTrigger = '<c-j>'
+let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnips']
 
 Plug 'tpope/vim-commentary'
@@ -41,6 +41,10 @@ Plug 'tpope/vim-surround'
 Plug 'ledger/vim-ledger'
 
 Plug 'preservim/tagbar'
+
+Plug 'tpope/vim-fugitive'
+
+Plug 'myusuf3/numbers.vim'
 
 call plug#end()
 
