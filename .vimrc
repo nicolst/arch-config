@@ -27,6 +27,16 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
+let g:vimtex_compiler_latexmk = {
+        \ 'options' : [
+        \   '-pdf' ,
+        \   '-shell-escape' ,
+        \   '-verbose' ,
+        \   '-file-line-error',
+        \   '-synctex=1' ,
+        \   '-interaction=nonstopmode' ,
+        \ ],
+        \}
 
 Plug 'sirver/ultisnips'
 let g:UltiSnipsExpandTrigger = '<c-j>'
@@ -45,6 +55,8 @@ Plug 'preservim/tagbar'
 Plug 'tpope/vim-fugitive'
 
 Plug 'myusuf3/numbers.vim'
+
+Plug 'ericcurtin/CurtineIncSw.vim'
 
 call plug#end()
 
@@ -75,17 +87,27 @@ let mapleader=","
 
 " Run Python files
 au FileType python nnoremap <silent> <buffer> <leader>rr :w<CR>:!clear;python %<CR>
-au FileType python nnoremap <silent> <buffer> <leader>rt :w<CR>:ter python "%"<CR>
-au FileType python nnoremap <silent> <buffer> <leader>rv :w<CR>:vert ter python "%"<CR>
+au FileType python nnoremap <silent> <buffer> <leader>rv :w<CR>:ter python "%"<CR>
+au FileType python nnoremap <silent> <buffer> <leader>rb :w<CR>:vert ter python "%"<CR>
+
+
+au FileType cpp nnoremap <silent> <buffer> <leader>rr :w<CR>:!clear;g++ % && ./a.out<CR>
+au FileType cpp nnoremap <silent> <buffer> <leader>rv :w<CR>:ter ++shell g++ % && ./a.out<CR>
+au FileType cpp nnoremap <silent> <buffer> <leader>rb :w<CR>:vert ter ++shell g++ % && ./a.out<CR>
+
 
 " Line wrapping
-au FileType tex,text setlocal textwidth=80
+au FileType markdown,tex,text setlocal textwidth=80
 
 
 " Easier terminal access
 nnoremap <silent> <leader>tt :term<CR>
 nnoremap <silent> <leader>tv :vert term<CR>
 noremap <Leader>' :Commentary<CR>
+
+
+" Switch between source/header
+au FileType cpp nnoremap <silent> <buffer> <leader>l :call CurtineIncSw()<CR>
 
 inoremap jk <Esc>
 command NT NERDTree
