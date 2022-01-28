@@ -162,3 +162,6 @@ bindsym $mod+Pause exec i3lock-fancy
 
 
 
+bindsym $mod+F12 exec oathtool --totp -b @/home/nicco/.totp-keys/ntnu | xclip -selection c
+
+

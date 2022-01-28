@@ -58,6 +58,8 @@ Plug 'myusuf3/numbers.vim'
 
 Plug 'ericcurtin/CurtineIncSw.vim'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 call plug#end()
 
 " Other settings
@@ -90,11 +92,13 @@ au FileType python nnoremap <silent> <buffer> <leader>rr :w<CR>:!clear;python %<
 au FileType python nnoremap <silent> <buffer> <leader>rv :w<CR>:ter python "%"<CR>
 au FileType python nnoremap <silent> <buffer> <leader>rb :w<CR>:vert ter python "%"<CR>
 
-
+" C++ stuff
 au FileType cpp nnoremap <silent> <buffer> <leader>rr :w<CR>:!clear;g++ % && ./a.out<CR>
 au FileType cpp nnoremap <silent> <buffer> <leader>rv :w<CR>:ter ++shell g++ % && ./a.out<CR>
 au FileType cpp nnoremap <silent> <buffer> <leader>rb :w<CR>:vert ter ++shell g++ % && ./a.out<CR>
 
+" Spellcheck
+au FileType latex,text,markdown setlocal spell
 
 " Line wrapping
 au FileType markdown,tex,text setlocal textwidth=80
