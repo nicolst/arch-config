@@ -36,6 +36,7 @@ let g:vimtex_compiler_latexmk = {
         \   '-synctex=1' ,
         \   '-interaction=nonstopmode' ,
         \ ],
+        \ 'build_dir' : 'build',
         \}
 
 Plug 'sirver/ultisnips'

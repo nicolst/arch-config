@@ -165,3 +165,9 @@ bindsym $mod+Pause exec i3lock-fancy
 bindsym $mod+F12 exec oathtool --totp -b @/home/nicco/.totp-keys/ntnu | xclip -selection c
 
 
+bindsym $mod+Print exec shutter -s
+bindsym $mod+Ctrl+Print exec shutter -f
+
+
+
+

@@ -3,5 +3,6 @@
 exec_always --no-startup-id xrandr --output DP-2 --primary
 exec_always --no-startup-id xrandr --output HDMI-1 --right-of DP-2 --rotation normal
 
+exec_always --no-startup-id obs --start-replay-buffer --minimize-to-tray
 
 
