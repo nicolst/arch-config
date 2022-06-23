@@ -1,6 +1,6 @@
 ;;;;; Desktop-specific modules
 
-modules-left = bspwm i3
+modules-left = bspwm i3 title
 modules-center = spotify
 modules-right = filesystem pulseaudio memory cpu eth temperature date powermenu
 
