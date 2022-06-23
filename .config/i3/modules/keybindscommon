@@ -168,6 +168,7 @@ bindsym $mod+F12 exec oathtool --totp -b @/home/nicco/.totp-keys/ntnu | xclip -s
 bindsym $mod+Print exec shutter -s
 bindsym $mod+Ctrl+Print exec shutter -f
 
-
+bindsym $mod+F9 exec setxkbmap us -option nodeadkeys
+bindsym $mod+F10 exec setxkbmap no -variant nodeadkeys
 
 

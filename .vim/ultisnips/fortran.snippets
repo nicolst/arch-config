@@ -64,7 +64,7 @@ FUNCTION `!p snip.rv = match.group(1)`
 END FUNCTION `!p snip.rv = match.group(1).split('(')[0]`
 endsnippet
 
-## TYPE functions! {{{
+## TYPE FUNCTIONS! {{{
 priority 10
 
 snippet intfunc "INTEGER FUNCTION thru-exp"
@@ -94,15 +94,15 @@ endsnippet
 
 # INTENTS
 snippet in "INTENT(in)"
-INTENT(in)$0
+INTENT(IN)$0
 endsnippet
 
 snippet out "INTENT(out)"
-INTENT(out)$0
+INTENT(OUT)$0
 endsnippet
 
 snippet inout "INTENT(inout)"
-INTENT(inout)$0
+INTENT(INOUT)$0
 endsnippet
 
 # }}}
@@ -114,13 +114,13 @@ priority 10
 snippet "do (.+)" "Expand do" "snip.column == len(snip.buffer[snip.line]) - 1" er
 DO `!p snip.rv = match.group(1)`
     $1
-END DO$0
+end DO$0
 endsnippet
 
 snippet do "pre-DO"
 DO $1
     $2
-END DO$0
+end DO$0
 endsnippet
 
 ### LOGICAL OPERATORS THAT ARE ANNOYING {{{
