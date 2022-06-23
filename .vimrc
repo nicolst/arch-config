@@ -1,6 +1,8 @@
 " Plugins
 call plug#begin('~/.vim/plugged')
 
+Plug 'tpope/vim-repeat'
+
 Plug 'vimsence/vimsence'
 
 Plug 'vim-airline/vim-airline'
@@ -10,6 +12,8 @@ let g:airline_powerline_fonts = 1
 Plug 'ycm-core/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_path_to_python_interpreter='/usr/bin/python'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_global_ycm_extra_conf = "~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py"
 " let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 " let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 " let g:SuperTabDefaultCompletionType = '<C-n>'
@@ -38,6 +42,8 @@ let g:vimtex_compiler_latexmk = {
         \ ],
         \ 'build_dir' : 'build',
         \}
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 Plug 'sirver/ultisnips'
 let g:UltiSnipsExpandTrigger = '<c-j>'
@@ -94,9 +100,9 @@ au FileType python nnoremap <silent> <buffer> <leader>rv :w<CR>:ter python "%"<C
 au FileType python nnoremap <silent> <buffer> <leader>rb :w<CR>:vert ter python "%"<CR>
 
 " C++ stuff
-au FileType cpp nnoremap <silent> <buffer> <leader>rr :w<CR>:!clear;g++ % && ./a.out<CR>
-au FileType cpp nnoremap <silent> <buffer> <leader>rv :w<CR>:ter ++shell g++ % && ./a.out<CR>
-au FileType cpp nnoremap <silent> <buffer> <leader>rb :w<CR>:vert ter ++shell g++ % && ./a.out<CR>
+au FileType cpp nnoremap <silent> <buffer> <leader>rr :w<CR>:!clear;g++ -std=c++20 % && ./a.out<CR>
+au FileType cpp nnoremap <silent> <buffer> <leader>rv :w<CR>:ter ++shell g++ -std=c++20 % && ./a.out<CR>
+au FileType cpp nnoremap <silent> <buffer> <leader>rb :w<CR>:vert ter ++shell g++ -std=c++20 % && ./a.out<CR>
 
 " Spellcheck
 au FileType latex,text,markdown setlocal spell
